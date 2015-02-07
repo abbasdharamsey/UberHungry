@@ -1,0 +1,26 @@
+{
+    "restaurantInfo": [
+        {
+            "restaurant": "In n Out",
+            "time_l": "1:00 PM",
+            "time_r": "2:00 PM",
+            "numLeft": 3,
+            "meeting_place": "Price Center"
+
+        },
+        {
+            "restaurant": "Pizza Hut",
+            "time_l": "1:30 PM",
+            "time_r": "2:45 PM",
+            "numLeft": 1,
+            "meeting_place": "64 Degrees"
+        },
+        {
+            "restaurant": "Sushi Ki",
+            "time_l": "4:00 PM",
+            "time_r": "5:00 PM",
+            "numLeft": 4,
+            "meeting_place": "Sixth Apartments Parking Lot"
+        }
+    ]
+}

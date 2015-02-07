@@ -32,3 +32,6 @@ $(function(){
     });         
 });
 
+$(document).ready(function() {
+    $("#moreModal").modal();
+  });

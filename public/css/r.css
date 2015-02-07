@@ -1,11 +1,3 @@
-ul li{
-    display: inline;
-}
-
-.jumbotron {
-    text-align: right;
-}
-
 .modal {
     /*! adjust transition time */
     -webkit-transition: all ease-out !important;
