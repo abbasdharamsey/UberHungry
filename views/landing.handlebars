@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Landing</title>
+        <link href="/css/main.css" rel="stylesheet">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+              <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <div class="collapse navbar-collapse navHeaderCollapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" class="menu-btn">About</a></li>
+                    <li><a href="profile" class="menu-btn">Profile</a></li>
+                </ul>  
+              </div>
+            </div>
+        </nav>
+
+        <div class="page-header">
+            <div class="container">
+                <div class="row">  
+                    <div class="col-sm-3">
+                        <h1>Lets go!</h1>
+                    </div>  
+                </div>
+                  <h3 style="text-align: center;">Do any of these sound good to you? If not, make your own event!</h3>
+
+            </div>
+        </div>
+
+        {{#each restaurantInfo}}
+            <div class="container">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="container">
+                            <div class="row">
+                                <div class="panel-title"><span class="col-sm-4 col-xs-4">{{restaurant}}</span><span class="col-sm-8 col-xs-8">Number of seats left: {{numLeft}}</span></h3></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-4 col-xs-4">Leaves at: </div>
+                                <div class="col-sm-4 col-xs-4">Returns at: </div>
+                                <div class="col-sm-4 col-xs-4">Leaves from: </div>
+                                <div class="col-sm-4 col-xs-4">{{time_l}}</div>
+                                <div class="col-sm-4 col-xs-4">{{time_r}}</div>
+                                <div class="col-sm-4 col-xs-4">{{meeting_place}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+        <div class="container">
+                    <h4 style="text-align: center;">Don't see what you want?</h4>
+                    <h3 style="text-align: center;"><a href="#" data-toggle="modal" data-target="#event-modal"><span class="label label-info">Add your own listing!</span></a></h3>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 col-xs-3"></div>
+                <div class="col-sm-6 col-xs-6">
+                    <div class="modal fade" id="event-modal" tabindex="-1" role="dialog" aria-labelledby="eventModal" aria-hidden="true">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Create a listing!</h4>
+                              </div>
+                              <div class="modal-body">
+                                <form role="form">
+                                  <div class="form-group">
+                                    <label for="resName">Restaurant Name</label>
+                                    <input type="text" class="form-control" id="resName">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="num">Max number of passengers</label>
+                                    <input type="text" class="form-control" id="num">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="where">Where do you want to meet?</label>
+                                    <input type="text" class="form-control" id="where">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="timeL">Leaving time: </label>
+                                    <input type="text" class="form-control" id="timeL">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="timeR">Returning time: </label>
+                                    <input type="text" class="form-control" id="timeR">
+                                  </div>
+                                </form>
+                              </div>
+                              <div class="modal-footer">
+                                 <button type="submit" class="btn btn-default">Submit</button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-xs-3"></div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script src="/js/myscripts.js"></script>
+    </body>
+</html>
