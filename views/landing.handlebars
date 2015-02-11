@@ -79,33 +79,40 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <h4 class="modal-title" id="myModalLabel">Create a listing!</h4>
                               </div>
-                              <div class="modal-body">
-                                <form role="form">
-                                  <div class="form-group">
-                                    <label for="resName">Restaurant Name</label>
-                                    <input type="text" class="form-control" id="resName">
+                                <form id="addListingForm" role="form" method="get" action="/add_listing">
+                                  <div class="modal-body">
+
+                                      <div class="form-group">
+                                        <label for="resName">Restaurant Name</label>
+                                        <input type="text" class="form-control" id="resName" name="res_name">
+                                      </div>
+
+                                      <div class="form-group">
+                                        <label for="num">Max number of passengers</label>
+                                        <input type="text" class="form-control" id="num" name="passenger_num">
+                                      </div>
+
+                                      <div class="form-group">
+                                        <label for="where">Where do you want to meet?</label>
+                                        <input type="text" class="form-control" id="where">
+                                      </div>
+
+                                      <div class="form-group">
+                                        <label for="timeL">Leaving time: </label>
+                                        <input type="text" class="form-control" id="timeL"/>
+                                      </div>
+
+                                      <div class="form-group">
+                                        <label for="timeR">Returning time: </label>
+                                        <input type="text" class="form-control" id="timeR">
+                                      </div>
+
+
                                   </div>
-                                  <div class="form-group">
-                                    <label for="num">Max number of passengers</label>
-                                    <input type="text" class="form-control" id="num">
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="where">Where do you want to meet?</label>
-                                    <input type="text" class="form-control" id="where">
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="timeL">Leaving time: </label>
-                                    <input type="text" class="form-control" id="timeL">
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="timeR">Returning time: </label>
-                                    <input type="text" class="form-control" id="timeR">
+                                  <div class="modal-footer">
+                                     <button type="submit" class="btn btn-default">Submit</button>
                                   </div>
                                 </form>
-                              </div>
-                              <div class="modal-footer">
-                                 <button type="submit" class="btn btn-default">Submit</button>
-                              </div>
                             </div>
                         </div>
                     </div>
