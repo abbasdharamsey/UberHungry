@@ -40,12 +40,19 @@
         </div>
 
         {{#each restaurantInfo}}
+        {{#if numLeft}}
             <div class="container">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <div class="container">
                             <div class="row">
-                                <div class="panel-title"><span class="col-sm-4 col-xs-4">{{restaurant}}</span><span class="col-sm-8 col-xs-8">Number of seats left: {{numLeft}}</span></h3></div>
+                                <div class="panel-title" id="{{id}}">
+                                  <span class="col-sm-4 col-xs-4">{{restaurant}}</span>
+                                  <span class="col-sm-4 col-xs-4 seat_num">Seats left: {{numLeft}}</span>
+                                  <button type="submit" class="btn btn-primary delete-important-data">Wanna go?</button>
+                                  <a href="/enque/{{id}}" type="submit" style="display:none;" class="delete-data-conf btn btn-primary">Sure?</a>
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -63,6 +70,7 @@
                     </div>
                 </div>
             </div>
+        {{/if}}
         {{/each}}
         <div class="container">
                     <h4 style="text-align: center;">Don't see what you want?</h4>
@@ -83,6 +91,15 @@
                                   <div class="modal-body">
 
                                       <div class="form-group">
+                                        <label for="userName">What do you want people to know you as?</label>
+                                        <input type="text" class="form-control" id="userName" name="user_name">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="leader_phone">What number should people use to contact you?</label>
+                                        <input type="text" class="form-control" id="leaPhone" name="lea_phone">
+                                      </div>
+
+                                      <div class="form-group">
                                         <label for="resName">Restaurant Name</label>
                                         <input type="text" class="form-control" id="resName" name="res_name">
                                       </div>
@@ -99,12 +116,15 @@
 
                                       <div class="form-group">
                                         <label for="timeL">Leaving time: </label>
-                                        <input type="text" class="form-control" id="timeL"/>
+                                        <input type="text" class="form-control" name="timeL"/>
                                       </div>
 
                                       <div class="form-group">
                                         <label for="timeR">Returning time: </label>
-                                        <input type="text" class="form-control" id="timeR">
+                                        <input type="text" class="form-control" name="timeR">
+                                      </div>
+                                      <div class="form-group">
+                                        <input type="hidden" class="form-control" name="id" value="">
                                       </div>
 
 
@@ -125,5 +145,6 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <script src="/js/myscripts.js"></script>
+        <script src="/js/landing.js"></script>
     </body>
 </html>

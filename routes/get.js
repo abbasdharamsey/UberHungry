@@ -1,7 +1,11 @@
 var data = require('../data.json');
+var profile = require('../profile.json')
 
 exports.viewIndex = function(req, res){
   res.render('index', data);
+};
+exports.viewConfirmation = function(req, res){
+  res.render('confirmation', profile);
 };
 
 exports.viewLanding = function(req, res){
@@ -9,5 +13,5 @@ exports.viewLanding = function(req, res){
 };
 
 exports.viewProfile= function(req, res){
-  res.render('profile', data);
+  res.render('profile', profile);
 };

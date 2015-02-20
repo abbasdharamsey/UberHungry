@@ -9,6 +9,8 @@ var path = require('path');
 var handlebars = require('express3-handlebars')
 var get = require('./routes/get.js');
 var listing = require("./routes/listing.js");
+var enqueController = require("./routes/enqueController.js");
+var dequeController = require("./routes/dequeController.js");
 
 // Example route
 // var user = require('./routes/user');
@@ -41,7 +43,27 @@ if ('development' == app.get('env')) {
 app.get('/', get.viewIndex);
 app.get('/landing', get.viewLanding);
 app.get('/profile', get.viewProfile);
+// app.get('/confirmation', get.viewConfirmation)
 app.get('/add_listing', listing.addNewListing);
+app.post('/profile', function(request, response){
+    var data = require('./profile.json');
+    console.log(request.body.name1);
+
+    var json = {
+            "name": request.body.name1,
+            "email": request.body.email,
+            "phone": request.body.number
+    }
+    data.userInfo.push(json);
+    // response.send(json);
+
+    response.render('profile', data);
+
+});
+
+app.get("/enque/:id", enqueController.enque);
+app.get("/deque/:id", dequeController.deque);
+// app.get('/confirmation', enqueController.enque);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

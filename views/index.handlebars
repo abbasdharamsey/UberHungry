@@ -65,14 +65,14 @@
                     <h4 class="modal-title" id="myModalLabel">Register</h4>
                   </div>
                   <div class="modal-body">
-                    <form role="form">
+                    <form role="form" action="/profile" method="post">
                       <div class="form-group">
                         <label for="name">Name:</label>
-                        <input type="name" class="form-control" id="name">
+                        <input type="name" class="form-control" id="name" name="name1">
                       </div>
                       <div class="form-group">
                         <label for="email">Email address:</label>
-                        <input type="email" class="form-control" id="email">
+                        <input type="email" class="form-control" id="email" name="email">
                       </div>
                       <div class="form-group">
                         <label for="pwd">Password:</label>
@@ -80,9 +80,9 @@
                       </div>
                       <div class="form-group">
                         <label for="phone">Phone Number:</label>
-                        <input type="text" class="form-control bfh-phone" data-format="+1 (ddd) ddd-dddd" data-country="US" id="text">
+                        <input type="text" class="form-control bfh-phone" data-format="+1 (ddd) ddd-dddd" data-country="US" id="text" name="number">
                       </div>
-                      <a href="/landing"><button type="button" class="btn btn-default">Submit</button></a>
+                      <input type="submit">
                     </form>
                   </div>
                 </div>
@@ -92,8 +92,8 @@
                 <div class="jumbotron main-jumbotron" id="mainJumbotron">
                   <div class="row">
                     <div class="col-md-6 col-md-offset-3" >  
-                      <h1 style="text-align: center;">Hello, world!</h1>
-                      <p style="text-align: center;">Fancy stuff coming soon</p>
+                      <h1 style="text-align: center;">UberHungry</h1>
+                      <p style="text-align: center;">Are you ready to eat?</p>
                     </div>
                   </div>
                 </div>
@@ -105,7 +105,7 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <script src="/js/myscripts.js"></script>
-        <script src="/js/pushy.min.js"></script>
+        <script src="/js/profile.min.js"></script>
         <script src="/routes/index.js"></script>
     </body>
 </html>

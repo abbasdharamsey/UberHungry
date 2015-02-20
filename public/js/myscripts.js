@@ -13,23 +13,23 @@ $(function(){
     $(".categories ul li").css("list-style","none").css("display","inline");
     $(".categories ul").css("width", ulSize+"px").css("left", -(current * liSize)).css("position", "absolute").css("white-space","nowrap").css("margin","0px").css("padding","5px");
 
-    $(".categories").swipeleft(function(event){
-        if(current + step < 0 || current + step > maximum - visible) {return; }
-        else {
-            current = current + step;
-            $('.categories ul').animate({left: -(liSize * current)}, speed, null);
-        }
-        return false;
-    });
+    // $(".categories").swipeleft(function(event){
+    //     if(current + step < 0 || current + step > maximum - visible) {return; }
+    //     else {
+    //         current = current + step;
+    //         $('.categories ul').animate({left: -(liSize * current)}, speed, null);
+    //     }
+    //     return false;
+    // });
 
-    $(".categories").swiperight(function(){
-        if(current - step < 0 || current - step > maximum - visible) {return; }
-        else {
-            current = current - step;
-            $('.categories ul').animate({left: -(liSize * current)}, speed, null);
-        }
-        return false;
-    });         
+    // $(".categories").swiperight(function(){
+    //     if(current - step < 0 || current - step > maximum - visible) {return; }
+    //     else {
+    //         current = current - step;
+    //         $('.categories ul').animate({left: -(liSize * current)}, speed, null);
+    //     }
+    //     return false;
+    // });         
 });
 
 $(document).ready(function() {
