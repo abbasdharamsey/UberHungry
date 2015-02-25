@@ -26,82 +26,90 @@
               </div>
             </div>
         </nav>
-
-        <div class="page-header">
-            <div class="container">
-                <div class="row">  
-                    <div class="col-sm-3">
-                        <h1>Profile</h1>
-                    </div>  
+        {{#if userInfo}}
+            <div class="page-header">
+                <div class="container">
+                    <div class="row">  
+                        <div class="col-sm-3">
+                            <h1>Hi, {{userInfo.name}}</h1>
+                        </div>  
+                    </div>
                 </div>
             </div>
-        </div>
-
-      
-        {{#if restaurantInfo}}
-        <h3 style="text-align:center">Your Listings:</h3>
-        <div class="container">
-              {{#each restaurantInfo}}
-                
-                <div class="well">
-                    <div class="row">
-                        <div class="col-sm-3 col-xs-3"><p>restaurant:</p></div>
-                        <div class="col-sm-3 col-xs-3"></div>
-                        <div class="col-sm-3 col-xs-3"><p>{{restaurant}}</p></div>
-                        <div class="col-sm-3 col-xs-3"><p>When you're leaving:</p></div>
-                        <div class="col-sm-3 col-xs-3"></div>
-                        <div class="col-sm-3 col-xs-3"><p>{{time_l}}</p></div>
-                        <div class="col-sm-3 col-xs-3"><p>When you're coming back:</p></div>
-                        <div class="col-sm-3 col-xs-3"></div>
-                        <div class="col-sm-3 col-xs-3"><p>{{time_r}}</p></div>
-                        <div class="col-sm-3 col-xs-3"><p>Who's taking you?:</p></div>
-                        <div class="col-sm-3 col-xs-3"></div>
-                        <div class="col-sm-3 col-xs-3"><p>{{leader}}</p></div>
-                        <div class="col-sm-3 col-xs-3"><p>Need to call him?:</p></div>
-                        <div class="col-sm-3 col-xs-3"></div>
-                        <div class="col-sm-3 col-xs-3"><p>{{leader_phone}}</p></div>
-                    </div>
-                </div>    
-                
-              {{/each}}            
-        </div>
         {{/if}}
-
-        {{#if userInfo}}
-        {{#each userInfo}} 
-        <h3 style="text-align:center"> Your Information: </h3>
-        <div class="container">
-                <div class="well">
-                    <div class="row">
-                        <div class="col-sm-3 col-xs-3"><p>Name:</p></div>
-                        <div class="col-sm-3 col-xs-3"></div>
-                        <div class="col-sm-3 col-xs-3"><p>{{name}}</p></div>
-                    </div>
-                </div>  
-                <div class="well">
-                    <div class="row">
-                        <div class="col-sm-6 col-xs-6"><p>Email:</p></div>
-                        <div class="col-sm-3 col-xs-3"><p>{{email}}</p></div>
-                    </div>
-                </div>      
-                <div class="well">
-                    <div class="row">
-                        <div class="col-sm-6 col-xs-6"><p>Phone number:</p></div>
-                        <div class="col-sm-3 col-xs-3"><p>{{phone}}</p></div>
-                    </div>
-                </div>               
-        </div>
-        {{/each}}
-        {{/if}}
+        {{#unless userInfo}}
+            <div class="page-header">
+                <h1 style="text-align:center">You don't seem to have any User Information</h1>
+            </div>
+        {{/unless}}
 
         
+        {{#if restaurantInfo}}
+        <h3 style="text-align:center">Events you're attending</h3>
+        {{#each restaurantInfo}}
+        
         <div class="container">
+            <div class="row" style="margin-top: 10px">
+                <div class="col-xs-2 col-sm-3"></div>
+                <div class="col-xs-8 col-sm-6">
+                     <ul class="list-group">
+                      <li class="list-group-item"><h5>Restaurant: <span class="text-right">{{restaurant}}</span> </h5></li>
+                      <li class="list-group-item">When you're leaving: {{time_l}}</li>
+                      <li class="list-group-item">When you're coming back: {{time_r}} </li>
+                      <li class="list-group-item">Event creator: {{leader}}</li>
+                      <li class="list-group-item">Event contact: {{leader_phone}}</li>
+                    </ul>
+                </div>
+                <div class="col-xs-2 col-sm-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3 col-sm-5"></div>
+                <div class="col-xs-6 col-sm-2">
+                    <button type="submit" class="btn btn-primary delete-important-data">Don't want to go anymore?</button>
+                    <a href="/deque/{{id}}" type="submit" style="display:none;" class="delete-data-conf btn btn-primary">Sure?</a>
+                </div>
+                <div class="col-xs-3 col-sm-5"></div> 
+            </div>
+        </div>
+        {{/each}} 
+        {{/if}}
+        {{#unless restaurantInfo}}
+            <p> you have no events you fucking cunt </p>
+        {{/unless}}
+
+        <h3><a href="#" data-toggle="modal" data-target="#edit-modal"><span class="label label-info">Edit</span></a></h3>
+
+        <!-- {{#if userInfo}}
+            <h3 style="text-align:center"> Your Information: </h3>
+            <div class="container">
+                    <div class="well">
+                        <div class="row">
+                            <div class="col-sm-3 col-xs-3"><p>Name:</p></div>
+                            <div class="col-sm-3 col-xs-3"></div>
+                            <div class="col-sm-3 col-xs-3"><p>{{userInfo.name}}</p></div>
+                        </div>
+                    </div>  
+                    <div class="well">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-6"><p>Email:</p></div>
+                            <div class="col-sm-3 col-xs-3"><p>{{userInfo.email}}</p></div>
+                        </div>
+                    </div>      
+                    <div class="well">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-6"><p>Phone number:</p></div>
+                            <div class="col-sm-3 col-xs-3"><p>{{userInfo.phone}}</p></div>
+                        </div>
+                    </div>               
+            </div>
+        {{/if}} -->
+
+        
 <!--             <div class="row">
                 <div class="col-sm-3 col-xs-3"></div> -->
-                    <h3><a href="#" data-toggle="modal" data-target="#edit-modal"><span class="label label-info">Edit</span></a></h3>
+                    
 <!--                 </div>
             </div> -->
-        </div>
         <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="editModal" aria-hidden="true">
               <div class="modal-dialog modal-sm">
                 <div class="modal-content">
@@ -138,5 +146,6 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <script src="/js/myscripts.js"></script>
+        <script src="/js/deque.js"></script>
     </body>
 </html>

@@ -21,14 +21,16 @@ exports.enque = function(req, res){
                 "leader": data[i].leader,
                 "leader_phone": data[i].leader_phone
             }
+            var restaurantInfo = {"restaurantInfo": []}
             userListings.restaurantInfo.push(newJson);
+            restaurantInfo.restaurantInfo.push(newJson)
             break;
         }
     };
     // userListings.restaurantInfo.splice(0,1);
 
     // res.send("confirmation page");
-    res.render('confirmation', userListings);
+    res.render('confirmation', restaurantInfo);
     // res.render('profile', info_json);
   // res.json({"num" : final_num});
 };

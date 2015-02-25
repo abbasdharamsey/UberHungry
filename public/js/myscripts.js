@@ -34,4 +34,14 @@ $(function(){
 
 $(document).ready(function() {
     $("#moreModal").modal();
+
+    // var jumboHeight = $('.confirJumbo').outerHeight();
+    // function parallax(){
+    //     var scrolled = $(window).scrollTop();
+    //     $('.confirBackground').css('height', (jumboHeight-scrolled) + 'px');
+    // }
+
+    // $(window).scroll(function(e){
+    //     parallax();
+    // });
   });

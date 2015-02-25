@@ -4,14 +4,59 @@
         <title>Confirmation</title>
         <link href="/css/main.css" rel="stylesheet">
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
 
         <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container-fluid" id="confirBackground">
+          <div class="row">
+            <div class="jumbotron" id="confirJumbo">
+              <h1 style="text-align:center"><span class ="glyphicon glyphicon-glass"></span>Now we're getting started!</h1>
+            </div>
+          </div>
+          {{#each restaurantInfo}}
+            <div class="row" style="background-color:#A7A5C6">
+              <div class="col-sm-3 col-xs-3">
+                <h3 style="color: #625D6A">Event information</h3>
+              </div>
+              <div class="col-sm-2 col-xs-2"></div>
+              <div class="col-sm-6 col-xs-6">
+                <h4>You'll be meeting everyone attending this listing at {{time_l}}. As a reminder, the location is at {{meeting_place}}  and you'll be leaving the restaurant at {{time_r}}. If you have trouble, call the event leader {{leader}} at {{leader_phone}} </h4>
+              </div>
+            </div>
+          {{/each}}
+
+          <div class="row" style="background-color:#F0EEF2;">
+            <div class="col-sm-3 col-xs-3">
+              <h3 style="text-align:center">One last thing before you run off!</h3>
+            </div>
+            <div class="col-sm-9 col-xs-9">
+              <ul class="list-group" style="margin-top: 10px; background-color: #A46A2B;">
+                <li class="list-group-item" style="background-color:#F0EEF2;">The lister will contact you 30 minutes before you leave</li>
+                <li class="list-group-item" style="background-color:#F0EEF2;">Make sure to show up to the location 5-10 minutes before</li>
+                <li class="list-group-item" style="background-color:#F0EEF2;">Be friendly and courteous to those you're going with, you never know who you meet :)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row" style="background-color:#813405">
+            <div class="col-sm-2 col-xs-1 col-md-2"></div>
+            <div class="col-sm-3 col-xs-3 col-md-3" style="margin-top: 10px; margin-bottom: 10px">
+              <a href="/landing" class="btn" style="background-color:#F0EEF2; color:black"><span class="glyphicon glyphicon-phone"></span>Reserve another trip</a>
+            </div>
+            <div class="col-sm-2 col-xs-3"></div>
+            <div class="col-sm-3 col-xs-3 col-mid-3" style="margin-top: 10px; margin-bottom: 10px">
+              <a href="/profile" class="btn" style="background-color:#F0EEF2; color:black"><span class="glyphicon glyphicon-phone"></span>Go to your profile</a>
+            </div>
+            <div class="col-sm-1 col-xs-1"></div>
+          </div>
+          <div class="row">
+          </div>
+        </div>
+        <!-- <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container">
               <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                 <span class="icon-bar"></span>
@@ -39,9 +84,9 @@
                     </div>
                     <div class="col-sm-4 col-xs-4"></div>
                 
-            </div>             
+            </div>    -->          
         </div>
-        <p>You're going to {{restaurant}} at {{time_l}} and returning at {{time_r}}. You're meeting {{leader}} at {{meeting_place}}, make sure to give him a call! {{leader_phone}} </p>{{/each}}
+        <!-- <p>You're going to {{restaurant}} at {{time_l}} and returning at {{time_r}}. You're meeting {{leader}} at {{meeting_place}}, make sure to give him a call! {{leader_phone}} </p>{{/each}} -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <script src="/js/myscripts.js"></script>

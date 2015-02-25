@@ -2,7 +2,6 @@
 /**
  * Module dependencies.
  */
-
 var express = require('express');
 var http = require('http');
 var path = require('path');
@@ -11,6 +10,7 @@ var get = require('./routes/get.js');
 var listing = require("./routes/listing.js");
 var enqueController = require("./routes/enqueController.js");
 var dequeController = require("./routes/dequeController.js");
+var userCheck = require("./routes/userCheck.js");
 
 // Example route
 // var user = require('./routes/user');
@@ -48,13 +48,19 @@ app.get('/add_listing', listing.addNewListing);
 app.post('/profile', function(request, response){
     var data = require('./profile.json');
     console.log(request.body.name1);
+    // if (data.userInfo[0]) {
+    //   data.userInfo.splice(0, 1);
+    // }
 
-    var json = {
+    var info = {
             "name": request.body.name1,
             "email": request.body.email,
             "phone": request.body.number
-    }
-    data.userInfo.push(json);
+    };
+    data.userInfo = info;
+    // data.userInfo.name = request.body.name1;
+    // data.userInfo.email= request.body.email;
+    // data.userInfo.phone = request.body.number;
     // response.send(json);
 
     response.render('profile', data);
@@ -63,6 +69,7 @@ app.post('/profile', function(request, response){
 
 app.get("/enque/:id", enqueController.enque);
 app.get("/deque/:id", dequeController.deque);
+app.get("/userCheck/:id", userCheck.check);
 // app.get('/confirmation', enqueController.enque);
 
 http.createServer(app).listen(app.get('port'), function(){
