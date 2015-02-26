@@ -2,6 +2,7 @@ var data = require('../data.json');
 
 exports.addNewListing = function(req, res){
   //res.render('index', data);
+  console.log(req.query.res_name);
   var newListing = {
       "restaurant": req.query.res_name,
       "time_l": req.query.timeL,
@@ -9,7 +10,7 @@ exports.addNewListing = function(req, res){
       "numLeft": parseInt(req.query.passenger_num),
       "meeting_place": req.query.where
   }
-  console.log(newListing);
-  data.restaurantInfo.push(newListing);
+  data["restaurantInfo"].push(newListing);
   res.render('add_listing', data); 
+
 }

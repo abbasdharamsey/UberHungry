@@ -14,7 +14,12 @@ $(document).ready(function(){
     // });
 
     $(".delete-data-conf").click(function() {
-        var id = $(this).parent().attr("id");
+        if (!$(this).parent().attr("id")) {
+            alert("Hey, this is your listing. You can't do that!");
+            $(".delete-data-conf").hide();
+            $('.delete-important-data').show();
+        }
+
         // Do stuff here
         $.get("/userCheck/"+id, {"id": id}, function(data) {
             if (data == "Fail") {
