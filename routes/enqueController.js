@@ -1,11 +1,11 @@
 var info_json = require('../data.json');
-var userListings = require('../profile.json')
+var profile = require('../profile.json')
 
 exports.enque = function(req, res){
     var id = req.params.id;
     var final_num;
     var data = info_json.restaurantInfo;
-    console.log(userListings.restaurantInfo);
+    console.log(profile.restaurantInfo);
     for (var i = data.length - 1; i >= 0; i--) {
         if(data[i].id == id){
             data[i].numLeft -= 1;
@@ -22,12 +22,12 @@ exports.enque = function(req, res){
                 "leader_phone": data[i].leader_phone
             }
             var restaurantInfo = {"restaurantInfo": []}
-            userListings.restaurantInfo.push(newJson);
-            restaurantInfo.restaurantInfo.push(newJson)
+            profile.restaurantInfo.push(newJson);
+            restaurantInfo.restaurantInfo.push(newJson);
             break;
         }
     };
-    // userListings.restaurantInfo.splice(0,1);
+    // profile.restaurantInfo.splice(0,1);
 
     // res.send("confirmation page");
     res.render('confirmation', restaurantInfo);
