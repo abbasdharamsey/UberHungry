@@ -20,6 +20,8 @@ $(document).ready(function(){
             $('.delete-important-data').show();
         }
 
+        var id = $(this).parent().attr("id");
+
         // Do stuff here
         $.get("/userCheck/"+id, {"id": id}, function(data) {
             if (data == "Fail") {
