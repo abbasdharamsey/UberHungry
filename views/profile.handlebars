@@ -39,8 +39,18 @@
         {{/if}}
         {{#unless userInfo}}
             <div class="page-header">
-                <h1 style="text-align:center">You don't seem to have any User Information</h1>
+                <div class="row">
+                    <h1 style="text-align:center">You don't seem to have any User Information</h1>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3 col-md-3"></div>
+                    <div class="col-xs-4 col-md-6">
+                        <h3><a href="#" data-toggle="modal" data-target="#edit-modal"><span class="label label-info">Add your information</span></a></h3>
+                    </div>
+                    <div class="col-xs-3 col-md-3"></div>
+                </div>
             </div>
+
         {{/unless}}
 
         
@@ -73,11 +83,13 @@
         </div>
         {{/each}} 
         {{/if}}
-        {{#unless restaurantInfo}}
-            <p> you have no events you fucking cunt </p>
-        {{/unless}}
+        <!-- {{#unless restaurantInfo}}
+            <p> You haven't signed up for any events. </p>
+        {{/unless}} -->
 
+        {{#if userInfo}}
         <h3><a href="#" data-toggle="modal" data-target="#edit-modal"><span class="label label-info">Edit</span></a></h3>
+        {{/if}}
 
         <!-- {{#if userInfo}}
             <h3 style="text-align:center"> Your Information: </h3>

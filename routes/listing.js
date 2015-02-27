@@ -3,6 +3,7 @@ var profile = require('../profile.json');
 
 exports.addNewListing = function(req, res){
   //res.render('index', data);
+  console.log(req.query.where);
   var newListing = {
       "restaurant": req.query.res_name,
       "time_l": req.query.timeL,
