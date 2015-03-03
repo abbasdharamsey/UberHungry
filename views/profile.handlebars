@@ -8,6 +8,8 @@
 
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link href='http://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -20,8 +22,8 @@
               </button>
               <div class="collapse navbar-collapse navHeaderCollapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/landing" class="menu-btn">Listings</a></li>
-                    <li><a href="#" class="menu-btn">About</a></li>
+                    <li style="text-align: center"><a href="/landing" class="menu-btn">Listings</a></li>
+                    <li style="text-align: center"><a href="#" class="menu-btn">About</a></li>
                 </ul>  
               </div>
             </div>
@@ -63,14 +65,14 @@
                 {{#unless userInfo}}
                 <div class="page-header">
                     <div class="row">
-                        <h1 style="text-align:center">You don't seem to have any User Information</h1>
+                        <h1 style="text-align:center">No User Information <i class="fa fa-user-times"></i></h1>
                     </div>
                     <div class="row">
-                        <div class="col-xs-3 col-md-3"></div>
-                        <div class="col-xs-4 col-md-6">
-                            <h3><a href="#" data-toggle="modal" data-target="#edit-modal"><span class="label label-info">Add your information</span></a></h3>
-                        </div>
-                        <div class="col-xs-3 col-md-3"></div>
+<!--                         <div class="col-xs-3 col-md-3"></div>
+                        <div class="col-xs-4 col-md-6"> -->
+                            <h3 style="text-align: center"><a href="#" data-toggle="modal" data-target="#edit-modal"><span class="label label-info">Add your information</span></a></h3>
+<!--                         </div>
+                        <div class="col-xs-3 col-md-3"></div> -->
                     </div>
                 </div>
                 {{/unless}}
@@ -102,13 +104,99 @@
                             </tbody>
                           </table>
                           
-                          <a href="#" data-toggle="modal" data-target="#edit-modal"><span class="label label-info">Edit Profile Information</span></a>
+                          <h3 style="text-align: center"><a href="#" data-toggle="modal" data-target="#edit-modal"><span class="label label-info">Edit Profile Information</span></a></h3>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 {{/if}}
+            </div>
+            <div class="row">  
+
+                {{#unless restaurantInfo}}
+                {{#unless userListings}}
+                {{#unless userInfo}}
+                <div class="page-header">
+                    <div class="row">
+                        <h1 style="text-align:center">You're not eating anywhere <i class="fa fa-meh-o"></i></h1>
+                    </div>
+                    <div class="row">
+<!--                         <div class="col-xs-3 col-md-3"></div>
+                        <div class="col-xs-4 col-md-6"> -->
+                            <h3 style="text-align: center"><a href="/landing">Hungry? <i class="fa fa-smile-o"></i></a></h3>
+<!--                         </div>
+                        <div class="col-xs-3 col-md-3"></div> -->
+                    </div>
+                </div>
+                {{/unless}}
+                {{/unless}}
+                {{/unless}}
+            </div>
+
+            {{#if userListings}}
+            <h3 style="text-align: center">Events you've created</h3>
+            {{#each userListings}}
+            <div class="container">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="container">
+                            <div class="row">
+                                <div class="panel-title" id="{{id}}">
+                                  <span class="col-sm-4 col-xs-4">{{restaurant}}</span>
+                                  <span class="col-sm-4 col-xs-4 seat_num">Seats left: {{numLeft}}</span>
+        <!--                           <button type="submit" class="btn btn-primary editListing">Wanna go?</button>
+                                  <a href="/enque/{{id}}" type="submit" style="display:none;" class="delete-data-conf btn btn-primary">Sure?</a>
+                                  <a href="#" type="submit" style="display:none;" class="delete-data-conf btn btn-primary">Sure?</a> -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-4 col-xs-4">Leaves at: </div>
+                                <div class="col-sm-4 col-xs-4">Returns at: </div>
+                                <div class="col-sm-4 col-xs-4">Leaves from: </div>
+                                <div class="col-sm-4 col-xs-4">{{time_l}}</div>
+                                <div class="col-sm-4 col-xs-4">{{time_r}}</div>
+                                <div class="col-sm-4 col-xs-4">{{meeting_place}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            {{/if}}
+
+            {{#if restaurantInfo}}
+            <h3 style="text-align: center">Events you're going to</h3>
+            {{#each restaurantInfo}}
+            <div class="container">
+              <div class="row">
+                <div class="panel panel-default event">
+                  <div class="panel-body">
+                    <div class="rsvp col-xs-2 col-sm-2">
+                      <i>Leaves at</i>
+                      <i>{{time_l}}</i>
+                      <i>Returns at</i>
+                      <i>{{time_r}}</i>
+                    </div>
+                    <div class="info col-xs-8 col-sm-7">
+                      {{restaurant}}
+                      <div class="visible-xs visible-sm visible-md visible-lg">Contact {{leader}} at {{leader_phone}} for information. </div>
+                    </div>
+                    <div class="author col-xs-2 col-sm-3">
+                      <a href="#" type="submit" class="delete-important-data link">Change your mind?</a>
+                      <a href="/deque/{{id}}" type="submit" style="display:none;" class="delete-data-conf">Are you sure?</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {{/each}}
+            {{/if}}
 
                 
                 <!-- {{#if restaurantInfo}}
