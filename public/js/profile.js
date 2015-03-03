@@ -1,3 +1,3 @@
-$("#regButton").click(function() {
+$(document).ready(function() {
 
 });

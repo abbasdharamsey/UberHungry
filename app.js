@@ -51,7 +51,7 @@ app.post('/profile', function(request, response){
     // if (data.userInfo[0]) {
     //   data.userInfo.splice(0, 1);
     // }
-
+    console.log(request.body.number);
     var info = {
             "name": request.body.name1,
             "email": request.body.email,

@@ -9,7 +9,8 @@ exports.addNewListing = function(req, res){
       "time_l": req.query.timeL,
       "time_r": req.query.timeR,
       "numLeft": parseInt(req.query.passenger_num),
-      "meeting_place": req.query.where
+      "meeting_place": req.query.where,
+      "leader_phone": req.query.lea_phone
   }
   profile.userListings.push(newListing);
   console.log(newListing);
