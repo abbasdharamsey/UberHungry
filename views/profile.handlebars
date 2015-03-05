@@ -4,13 +4,13 @@
          <link href="/css/main.css" rel="stylesheet">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/css/pushy.css">
 
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <link href='http://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {{> woopra}}
     </head>
     <body>
         <nav class="navbar navbar-default navbar-static-top">
@@ -62,6 +62,7 @@
             </div>
         <div class="container">
             <div class="row">
+                {{#if userListings}}
                 {{#unless userInfo}}
                 <div class="page-header">
                     <div class="row">
@@ -76,6 +77,45 @@
                     </div>
                 </div>
                 {{/unless}}
+                {{/if}}
+
+                {{#if restaurantInfo}}
+                {{#unless userInfo}}
+                <div class="page-header">
+                    <div class="row">
+                        <h1 style="text-align:center">No User Information <i class="fa fa-user-times"></i></h1>
+                    </div>
+                    <div class="row">
+<!--                         <div class="col-xs-3 col-md-3"></div>
+                        <div class="col-xs-4 col-md-6"> -->
+                            <h3 style="text-align: center"><a href="#" data-toggle="modal" data-target="#edit-modal"><span class="label label-info">Add your information</span></a></h3>
+<!--                         </div>
+                        <div class="col-xs-3 col-md-3"></div> -->
+                    </div>
+                </div>
+                {{/unless}}
+                {{/if}}
+
+
+                {{#unless userListings}}
+                {{#unless restaurantInfo}}
+                {{#if userInfo}}
+
+                <div class="page-header">
+                    <div class="row">
+                        <h1 style="text-align:center">You're not eating anywhere <i class="fa fa-meh-o"></i></h1>
+                    </div>
+                    <div class="row">
+<!--                         <div class="col-xs-3 col-md-3"></div>
+                        <div class="col-xs-4 col-md-6"> -->
+                            <h3 style="text-align: center"><a href="/landing">Hungry? <i class="fa fa-smile-o"></i></a></h3>
+<!--                         </div>
+                        <div class="col-xs-3 col-md-3"></div> -->
+                    </div>
+                </div>
+                {{/if}}
+                {{/unless}}
+                {{/unless}} 
 
                 {{#if userInfo}}
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
@@ -112,12 +152,24 @@
                 </div>
                 {{/if}}
             </div>
-            <div class="row">  
+            <div class="row"> 
+
+
 
                 {{#unless restaurantInfo}}
                 {{#unless userListings}}
                 {{#unless userInfo}}
                 <div class="page-header">
+                    <div class="row">
+                        <h1 style="text-align:center">No User Information <i class="fa fa-user-times"></i></h1>
+                    </div>
+                    <div class="row">
+<!--                         <div class="col-xs-3 col-md-3"></div>
+                        <div class="col-xs-4 col-md-6"> -->
+                            <h3 style="text-align: center"><a href="#" data-toggle="modal" data-target="#edit-modal"><span class="label label-info">Add your information</span></a></h3>
+<!--                         </div>
+                        <div class="col-xs-3 col-md-3"></div> -->
+                    </div>
                     <div class="row">
                         <h1 style="text-align:center">You're not eating anywhere <i class="fa fa-meh-o"></i></h1>
                     </div>
@@ -133,7 +185,7 @@
                 {{/unless}}
                 {{/unless}}
             </div>
-
+          <div class="row">
             {{#if userListings}}
             <h3 style="text-align: center">Events you've created</h3>
             {{#each userListings}}
@@ -142,13 +194,11 @@
                     <div class="panel-heading">
                         <div class="container">
                             <div class="row">
-                                <div class="panel-title" id="{{id}}">
+                                <div class="panel-title" id="{{name}}">
                                   <span class="col-sm-4 col-xs-4">{{restaurant}}</span>
                                   <span class="col-sm-4 col-xs-4 seat_num">Seats left: {{numLeft}}</span>
-        <!--                           <button type="submit" class="btn btn-primary editListing">Wanna go?</button>
-                                  <a href="/enque/{{id}}" type="submit" style="display:none;" class="delete-data-conf btn btn-primary">Sure?</a>
-                                  <a href="#" type="submit" style="display:none;" class="delete-data-conf btn btn-primary">Sure?</a> -->
-
+                                  <button type="submit" class="delete-important-data label label-info">Delete this event?</button>
+                                  <a href="#" type="submit" style="display:none; margin-left: 40px; text-align:center;" class="delete-listing label label-info" id="{{restaurant}}">Sure?</a>
                                 </div>
                             </div>
                         </div>
@@ -168,32 +218,60 @@
                 </div>
             </div>
             {{/each}}
-            {{/if}}
+            <!-- <div class="container">
+              <table class="table-bordered">
+                <thead>
+                  
+                  <tr>
+                    <th>Restaurant</th>
+                    <th>Meeting place</th>
+                    <th>Returning time</th>
+                    <th>Leaving time</th>
+                    <th> </th>
+                  </tr>
+                  
+                </thead>
+                {{#each userListings}}
+                <tbody id={{restaurant}}>
+                  <tr id="{{name}}">
+                    <td>{{restaurant}}</td>
+                    <td>{{time_l}}</td>
+                    <td>{{time_r}}</td>
+                    <td>{{meeting_place}}</td>
+                    <td><button type="submit" class="delete-important-data btn btn-primary">Delete this event?</button><a href="#" type="submit" style="display:none;" class="delete-listing btn btn-primary">Sure?</a></td>
+                  </tr>
+                </tbody>
+                {{/each}}
+              </div>
+              
+            </div>
+          </div> -->
+        {{/if}}
 
             {{#if restaurantInfo}}
             <h3 style="text-align: center">Events you're going to</h3>
             {{#each restaurantInfo}}
             <div class="container">
-              <div class="row">
+              <!-- <div class="row"> -->
                 <div class="panel panel-default event">
                   <div class="panel-body">
-                    <div class="rsvp col-xs-2 col-sm-2">
+                    <div class="rsvp col-xs-2 col-sm-2" style="padding-bottom: 30px">
                       <i>Leaves at</i>
                       <i>{{time_l}}</i>
                       <i>Returns at</i>
                       <i>{{time_r}}</i>
                     </div>
-                    <div class="info col-xs-8 col-sm-7">
+                    <div class="info col-xs-8 col-sm-7" style="text-align: center">
                       {{restaurant}}
                       <div class="visible-xs visible-sm visible-md visible-lg">Contact {{leader}} at {{leader_phone}} for information. </div>
                     </div>
-                    <div class="author col-xs-2 col-sm-3">
+                    <div class="author col-xs-2 col-sm-3" style="padding-top: 6px">
                       <a href="#" type="submit" class="delete-important-data link">Change your mind?</a>
-                      <a href="/deque/{{id}}" type="submit" style="display:none;" class="delete-data-conf">Are you sure?</a>
+                      <a href="/deque/{{id}}" type="submit" style="display:none;" class="delete-data-conf" style="paddingp-top:6px">Are you sure?</a>
                     </div>
                   </div>
                 </div>
-              </div>
+             <!--  </div> -->
             </div>
             {{/each}}
             {{/if}}
@@ -249,5 +327,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
         <script src="/js/myscripts.js"></script>
         <script src="/js/deque.js"></script>
+        <script src="/js/profile.js"></script>
     </body>
 </html>

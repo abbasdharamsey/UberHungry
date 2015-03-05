@@ -9,9 +9,10 @@
         <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {{> woopra}}
     </head>
     <body>
-        <nav class="navbar navbar-inverse navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
               <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                 <span class="icon-bar"></span>
@@ -20,8 +21,8 @@
               </button>
               <div class="collapse navbar-collapse navHeaderCollapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" class="menu-btn">About</a></li>
-                    <li><a href="profile" class="menu-btn">Profile</a></li>
+                    <li><a href="#" class="menu-btn" style="text-align: center">About</a></li>
+                    <li><a href="/profile" class="menu-btn"style="text-align: center">Profile</a></li>
                 </ul>  
               </div>
             </div>
@@ -41,7 +42,7 @@
 
         {{#each restaurantInfo}}
         {{#if numLeft}}
-            <div class="container">
+            <!-- <div class="container">
                 <div class="panel panel-info">
                     <div class="panel-heading">
                         <div class="container">
@@ -50,7 +51,6 @@
                                   <span class="col-sm-4 col-xs-4">{{restaurant}}</span>
                                   <span class="col-sm-4 col-xs-4 seat_num">Seats left: {{numLeft}}</span>
                                   <button type="submit" class="btn btn-primary delete-important-data">Wanna go?</button>
-                                  <!-- <a href="/enque/{{id}}" type="submit" style="display:none;" class="delete-data-conf btn btn-primary">Sure?</a> -->
                                   <a href="#" type="submit" style="display:none;" class="delete-data-conf btn btn-primary">Sure?</a>
 
                                 </div>
@@ -70,6 +70,30 @@
                         </div>
                     </div>
                 </div>
+            </div> -->
+            <div class="container">
+              <!-- <div class="row"> -->
+                <div class="panel panel-default event">
+                  <div class="panel-body">
+                    <div class="rsvp col-xs-2 col-sm-2" style="padding-bottom: 30px">
+                      <i>Leaves at</i>
+                      <i>{{time_l}}</i>
+                      <i>Returns at</i>
+                      <i>{{time_r}}</i>
+                    </div>
+
+                    <div class="info col-xs-8 col-sm-7" style="text-align:center; padding-top:7px">
+                      {{restaurant}}
+                      <div class="visible-xs visible-sm visible-md visible-lg" style="text-align:center; padding-bottom:5px"><h5>{{numLeft}} spot(s) left</h5></div>
+                    </div>
+
+                    <div class="author col-xs-2 col-sm-3" id="{{id}}" style="padding-top: 20px">
+                      <a href="#" type="submit" class="delete-important-data link">Wanna Go?</a>
+                      <a href="#" type="submit" style="display:none;" class="delete-data-conf" style="paddingp-top:6px">Sure?</a>
+                    </div>
+                  </div>
+                </div>
+             <!--  </div> -->
             </div>
         {{/if}}
         {{/each}}

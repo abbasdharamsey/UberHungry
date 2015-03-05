@@ -30,7 +30,7 @@ exports.enque = function(req, res){
     // profile.restaurantInfo.splice(0,1);
 
     // res.send("confirmation page");
-    res.render('confirmation', restaurantInfo);
+    res.render('profile', profile);
     // res.render('profile', info_json);
   // res.json({"num" : final_num});
 };

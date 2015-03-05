@@ -67,6 +67,7 @@ app.post('/profile', function(request, response){
 
 });
 
+app.get("/deleteListing", listing.deleteListing)
 app.get("/enque/:id", enqueController.enque);
 app.get("/deque/:id", dequeController.deque);
 app.get("/userCheck/:id", userCheck.check);

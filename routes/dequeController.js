@@ -22,6 +22,6 @@ exports.deque = function(req, res){
 
     // res.send("confirmation page");
     // res.render('landing', info_json);
-    res.render('dequeConfirmation', userListings);
+    res.render('profile', userListings);
   // res.json({"num" : final_num});
 };
