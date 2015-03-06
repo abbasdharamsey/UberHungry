@@ -31,11 +31,18 @@
 
         <div class="page-header">
                         <h1 style="text-align: center">Lets go! <i class="fa fa-car"></i></h1>
-                  <h3 style="text-align: center;">Do any of these sound good to you? If not, make your own event!</h3>
+                  <!-- <h3 style="text-align: center;">Do any of these sound good to you? If not, make your own event!</h3> -->
+                  <div class="container">
+                    <h4 style="text-align: center;">Don't see what you want?</h4>
+                    <h3 style="text-align: center;"><a href="#" data-toggle="modal" data-target="#event-modal"><span class="label label-info">Add your own listing!</span></a></h3>
+        </div>
 
             </div>
         </div>
 
+        
+
+        <div class="container">
         {{#each restaurantInfo}}
         {{#if numLeft}}
             <!-- <div class="container">
@@ -67,7 +74,7 @@
                     </div>
                 </div>
             </div> -->
-            <div class="container">
+            
               <!-- <div class="row"> -->
                 <div class="panel panel-default event">
                   <div class="panel-body">
@@ -90,13 +97,11 @@
                   </div>
                 </div>
              <!--  </div> -->
-            </div>
+            
         {{/if}}
         {{/each}}
-        <div class="container">
-                    <h4 style="text-align: center;">Don't see what you want?</h4>
-                    <h3 style="text-align: center;"><a href="#" data-toggle="modal" data-target="#event-modal"><span class="label label-info">Add your own listing!</span></a></h3>
         </div>
+        
         <div class="container">
             <div class="row">
                 <div class="col-sm-3 col-xs-3"></div>
